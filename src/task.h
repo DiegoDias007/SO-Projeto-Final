@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+
+using namespace std;
+
 struct Task {
     int id;
     int priority;
@@ -19,3 +23,4 @@ struct Task {
 };
 
 void print_task(Task task);
+void show_avg_times(vector<Task>& tasks);

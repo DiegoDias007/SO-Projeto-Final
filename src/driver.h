@@ -7,4 +7,4 @@
 using namespace std;
 
 vector<Task> parse_schedule(string filename);
-Task parse_task(std::string line);
+Task parse_task(string line);

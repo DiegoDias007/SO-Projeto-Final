@@ -3,20 +3,15 @@
 #include "task.h"
 #include "driver.h"
 #include "cpu.h"
+#include "fcfs.h"
+#include "task.h"
 
 using namespace std;
 
 int main() {
     vector<Task> tasks;
     tasks = parse_schedule("schedule.txt");
-    for (Task task : tasks) {
-        print_task(task);
-    }
-
-    Task exemplo = tasks[0];
-    print_task(exemplo);
-    int time_now = 0;
-    run(exemplo, 30, time_now);
-    print_task(exemplo);
+    schedule(tasks);
+    show_avg_times(tasks);
     return 0;
 }
