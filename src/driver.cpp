@@ -19,7 +19,7 @@ vector<Task> parse_schedule(string filename) {
     vector<Task> tasks;
     
     if (!file.is_open()) {
-        cout << "Error: Could not open file " << filename << endl;
+        cout << "Erro: Nao foi possivel abrir o arquivo " << filename << endl;
         return tasks;
     }
     

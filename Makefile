@@ -37,19 +37,63 @@ $(TARGET): $(SOURCES)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 # =============================================================================
-# Utility Targets
+# Targets de Execucao
 # =============================================================================
 
-# Execute the program
+# Executar o programa (padrao com priority_rr)
 run: all
-	@./$(TARGET)
+	@./$(TARGET) priority_rr
 
-# Remove all build artifacts
+# =============================================================================
+# Targets Especificos de Algoritmos
+# =============================================================================
+
+# Executar algoritmo FCFS (First Come First Served)
+fcfs: all
+	@./$(TARGET) fcfs
+
+# Executar algoritmo SJF (Shortest Job First)
+sjf: all
+	@./$(TARGET) sjf
+
+# Executar algoritmo RR (Round Robin)
+rr: all
+	@./$(TARGET) rr
+
+# Executar algoritmo Priority Scheduling
+priority: all
+	@./$(TARGET) priority
+
+# Executar algoritmo Priority Round Robin
+priority_rr: all
+	@./$(TARGET) priority_rr
+
+# =============================================================================
+# Targets Utilitarios
+# =============================================================================
+
+# Remover todos os arquivos de build
 clean:
 	@rm -rf $(BUILD_DIR)
 
-# Force a complete rebuild of the project
+# Forcar recompilacao completa do projeto
 rebuild: clean all
 
-# Declare targets that are not files
-.PHONY: all run clean rebuild
+# Mostrar targets de algoritmos disponiveis
+help:
+	@echo "Targets disponiveis:"
+	@echo "  make fcfs        - Executar algoritmo First Come First Served"
+	@echo "  make sjf         - Executar algoritmo Shortest Job First"
+	@echo "  make rr          - Executar algoritmo Round Robin"
+	@echo "  make priority    - Executar algoritmo Priority Scheduling"
+	@echo "  make priority_rr - Executar algoritmo Priority Round Robin"
+	@echo "  make all         - Compilar o programa"
+	@echo "  make run         - Executar algoritmo padrao (priority_rr)"
+	@echo "  make clean       - Remover arquivos de build"
+	@echo "  make rebuild     - Limpar e recompilar"
+	@echo "  make help        - Mostrar esta mensagem de ajuda"
+	@echo ""
+	@echo "Todos os algoritmos usam automaticamente o arquivo schedule.txt."
+
+# Declarar targets que nao sao arquivos
+.PHONY: all run clean rebuild fcfs sjf rr priority priority_rr help

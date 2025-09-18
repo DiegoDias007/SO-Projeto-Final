@@ -22,5 +22,5 @@ struct Task {
     int waiting_time = -1;
 };
 
-void print_task(Task task);
+void print_task(Task& task);
 void show_avg_times(vector<Task>& tasks);
