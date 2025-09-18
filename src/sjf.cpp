@@ -2,11 +2,12 @@
 #include <vector>
 #include "task.h"
 #include "cpu.h"
-#include "fcfs.h"
+#include "sjf.h"
+#include <algorithm>
 
 using namespace std;
 
-Task* fcfs_pickNextTask(vector<Task>& tasks, int& index) {
+Task* sjf_pickNextTask(vector<Task>& tasks, int& index) {
     int qtd_tasks = tasks.size();
     if (index < qtd_tasks) {
         return &tasks[index++];
@@ -14,12 +15,18 @@ Task* fcfs_pickNextTask(vector<Task>& tasks, int& index) {
     return nullptr;
 }
 
-void fcfs_schedule(vector<Task>& tasks) {
+void sjf_schedule(vector<Task>& tasks) {
     int index = 0;
     int time_now = 0;
     Task* current_task = nullptr;
 
-    while ((current_task = fcfs_pickNextTask(tasks, index)) != nullptr) {
+    // Ordena as tasks pelo seu burst
+    // Tasks com menor burst são executadas primeiro
+    sort(tasks.begin(), tasks.end(), [](Task& a, Task& b) {
+        return a.burst < b.burst;
+    });
+
+    while ((current_task = sjf_pickNextTask(tasks, index)) != nullptr) {
         run(*current_task, current_task->remaining_burst, time_now);
         print_task(*current_task);
     }

@@ -5,5 +5,5 @@
 
 using namespace std;
 
-Task* pickNextTask(vector<Task>& tasks, int& index);
-void schedule(vector<Task>& tasks);
+Task* fcfs_pickNextTask(vector<Task>& tasks, int& index);
+void fcfs_schedule(vector<Task>& tasks);
