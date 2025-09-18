@@ -23,6 +23,7 @@ vector<Task> parse_schedule(string filename) {
         return tasks;
     }
     
+    // Lê cada linha do arquivo e cria uma task para cada linha
     string line;
     while (getline(file, line)) {
         tasks.push_back(parse_task(line));
@@ -35,12 +36,19 @@ Task parse_task(string line) {
     Task task;
     stringstream ss(line);
     string token;
+
+    // ID
     getline(ss, token, ',');
     task.id = stoi(token.substr(1));
+
+    // Proridade
     getline(ss, token, ',');
     task.priority = stoi(token);
+
+    // Burst
     getline(ss, token, ',');
     task.burst = stoi(token);
     task.remaining_burst = task.burst;
+
     return task;
 }
