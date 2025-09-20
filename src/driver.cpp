@@ -1,8 +1,3 @@
-/*
-    Arquivo responsável pela lógica de ler o arquivo de entrada
-    e guardar um vector de tasks.
-*/
-
 #include <iostream>
 #include <fstream>
 #include <string>

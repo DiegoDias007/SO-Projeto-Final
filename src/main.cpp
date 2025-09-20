@@ -14,9 +14,9 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        cout << "Error: No algorithm specified!" << endl;
-        cout << "Usage: ./scheduler <algorithm>" << endl;
-        cout << "Available algorithms: fcfs, sjf, rr, priority, priority_rr" << endl;
+        cout << "\033[1;31mErro: Nenhum algoritmo especificado!\033[0m" << endl;
+        cout << "\nUso: ./scheduler <algoritmo>" << endl;
+        cout << "Algoritmos disponiveis: fcfs, sjf, rr, priority, priority_rr" << endl;
         return 1;
     }
 
@@ -33,12 +33,15 @@ int main(int argc, char* argv[]) {
     
     int quantum = 15;
     
-    cout << "========================================" << endl;
-    cout << "Executing " << algorithm << " algorithm" << endl;
-    cout << "Input file: " << schedule_file << endl;
-    cout << "Number of tasks: " << tasks.size() << endl;
-    cout << "Time quantum: " << quantum << " ms" << endl;
-    cout << "========================================" << endl;
+    // Banner de abertura estilizado
+    cout << "\n\033[1;34m========================================\033[0m" << endl;
+    cout << "\033[1;34m     Simulador de Escalonamento CPU     \033[0m" << endl;
+    cout << "\033[1;34m========================================\033[0m" << endl;
+    cout << "Algoritmo: \033[1m" << algorithm << "\033[0m" << endl;
+    cout << "Arquivo de entrada: " << schedule_file << endl;
+    cout << "Tarefas: " << tasks.size() << endl;
+    cout << "Quantum: " << quantum << " ms" << endl;
+    cout << "\033[1;34m----------------------------------------\033[0m\n" << endl;
     
     if (algorithm == "fcfs") {
         fcfs_schedule(tasks);
@@ -51,8 +54,8 @@ int main(int argc, char* argv[]) {
     } else if (algorithm == "priority_rr") {
         priority_rr_schedule(tasks, quantum);
     } else {
-        cout << "Error: Unknown algorithm '" << algorithm << "'" << endl;
-        cout << "Available algorithms: fcfs, sjf, rr, priority, priority_rr" << endl;
+        cout << "\033[1;31mErro: Algoritmo desconhecido '" << algorithm << "'\033[0m" << endl;
+        cout << "Algoritmos disponiveis: fcfs, sjf, rr, priority, priority_rr" << endl;
         return 1;
     }
     
