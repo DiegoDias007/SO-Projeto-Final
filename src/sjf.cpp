@@ -7,8 +7,10 @@
 
 using namespace std;
 
+// Retorna a próxima tarefa na ordem do vetor.
 Task* sjf_pickNextTask(vector<Task>& tasks, int& index) {
     int qtd_tasks = tasks.size();
+    // Se ainda há tarefas, devolve a próxima; caso contrário, nullptr
     if (index < qtd_tasks) {
         return &tasks[index++];
     }
@@ -26,6 +28,7 @@ void sjf_schedule(vector<Task>& tasks) {
         return a.burst < b.burst;
     });
 
+    // Percorre a lista na ordem e executa cada tarefa até não ter mais tarefas
     while ((current_task = sjf_pickNextTask(tasks, index)) != nullptr) {
         run(*current_task, current_task->remaining_burst, time_now);
         print_task(*current_task);

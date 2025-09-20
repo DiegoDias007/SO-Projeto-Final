@@ -8,10 +8,12 @@
 using namespace std;
 
 Task* rr_pickNextTask(queue<Task*>& ready_queue) {
+    // Se a fila de prontos está vazia, retorna nullptr
     if (ready_queue.empty()) {
         return nullptr;
     }
     
+    // Retorna a tarefa no topo da fila de prontos
     Task* current_task = ready_queue.front();
     ready_queue.pop();
     return current_task;
