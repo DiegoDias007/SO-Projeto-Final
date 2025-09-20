@@ -8,7 +8,7 @@
 
 # Compiler and Flags
 CXX      = g++
-CXXFLAGS = -std=c++20 -Wall -Wextra -g
+CXXFLAGS = -std=c++11
 
 # Directories
 SRC_DIR   = src

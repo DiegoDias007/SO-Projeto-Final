@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include <atomic> 
+
 using namespace std;
 
 struct Task {

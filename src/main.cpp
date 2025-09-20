@@ -14,9 +14,9 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
-        cout << "Erro: Nenhum algoritmo informado!" << endl;
-        cout << "Uso: ./programa <algoritmo>" << endl;
-        cout << "Algoritmos disponiveis: fcfs, sjf, rr, priority, priority_rr" << endl;
+        cout << "Error: No algorithm specified!" << endl;
+        cout << "Usage: ./scheduler <algorithm>" << endl;
+        cout << "Available algorithms: fcfs, sjf, rr, priority, priority_rr" << endl;
         return 1;
     }
 
@@ -27,13 +27,17 @@ int main(int argc, char* argv[]) {
     tasks = parse_schedule(schedule_file);
     
     if (tasks.empty()) {
-        cout << "Erro: Nenhuma tarefa encontrada em schedule.txt!" << endl;
+        cout << "Error: No tasks found in " << schedule_file << "!" << endl;
         return 1;
     }
     
-    int quantum = 10;
+    int quantum = 15;
     
-    cout << "Executando algoritmo " << algorithm << " com schedule.txt" << endl;
+    cout << "========================================" << endl;
+    cout << "Executing " << algorithm << " algorithm" << endl;
+    cout << "Input file: " << schedule_file << endl;
+    cout << "Number of tasks: " << tasks.size() << endl;
+    cout << "Time quantum: " << quantum << " ms" << endl;
     cout << "========================================" << endl;
     
     if (algorithm == "fcfs") {
@@ -47,12 +51,11 @@ int main(int argc, char* argv[]) {
     } else if (algorithm == "priority_rr") {
         priority_rr_schedule(tasks, quantum);
     } else {
-        cout << "Erro: Algoritmo desconhecido '" << algorithm << "'" << endl;
-        cout << "Algoritmos disponiveis: fcfs, sjf, rr, priority, priority_rr" << endl;
+        cout << "Error: Unknown algorithm '" << algorithm << "'" << endl;
+        cout << "Available algorithms: fcfs, sjf, rr, priority, priority_rr" << endl;
         return 1;
     }
     
-    cout << "========================================" << endl;
     show_avg_times(tasks);
     return 0;
 }
