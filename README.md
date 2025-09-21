@@ -12,11 +12,11 @@ Este repositório contém a implementação do projeto final da disciplina de Si
 O **Simulador de Escalonamento de CPU** é uma ferramenta educacional que implementa e compara algoritmos clássicos de escalonamento de processos em sistemas operacionais. O projeto demonstra como diferentes estratégias de escalonamento afetam o desempenho do sistema em termos de tempo de resposta, tempo de espera e tempo de retorno.
 
 O principal objetivo é analisar o comportamento de cinco algoritmos fundamentais:
-- **FCFS (First Come, First Served)**: Escalonamento por ordem de chegada
-- **SJF (Shortest Job First)**: Prioriza tarefas com menor tempo de execução
-- **Priority Scheduling**: Escalonamento baseado em prioridades
+- **FCFS (Primeiro a Chegar, Primeiro a Ser Servido)**: Escalonamento por ordem de chegada
+- **SJF (Menor Tarefa Primeiro)**: Prioriza tarefas com menor tempo de execução
+- **Escalonamento por Prioridade**: Escalonamento baseado em prioridades
 - **Round Robin**: Escalonamento com quantum fixo
-- **Priority Round Robin**: Combinação de prioridades com quantum
+- **Round Robin com Prioridade**: Combinação de prioridades com quantum
 
 O desafio central é entender como cada algoritmo balanceia diferentes métricas de desempenho, permitindo uma análise comparativa detalhada dos compromissos entre responsividade, vazão e justiça no acesso aos recursos do processador.
 
@@ -58,6 +58,8 @@ make clean
 
 ### Execução
 
+**Algoritmos disponíveis:** `fcfs`, `sjf`, `rr`, `priority`, `priority_rr`
+
 **Opção 1: Compilar + Executar diretamente**
 
 ```bash
@@ -80,8 +82,6 @@ make rr           # Executa Round Robin
 make priority     # Executa Escalonamento por Prioridade
 make priority_rr  # Executa Round Robin com Prioridade
 ```
-
-**Algoritmos disponíveis:** `fcfs`, `sjf`, `rr`, `priority`, `priority_rr`
 
 ## 💻 Instruções de Uso
 
