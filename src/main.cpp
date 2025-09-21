@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     
-    int quantum = 15;
+    int quantum = 10;
     
     // Banner de abertura estilizado
     cout << "\n\033[1;34m========================================\033[0m" << endl;

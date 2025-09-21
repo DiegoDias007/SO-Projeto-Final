@@ -76,8 +76,6 @@ priority_rr: all
 clean:
 	@rm -rf $(BUILD_DIR)
 
-# Forcar recompilacao completa do projeto
-rebuild: clean all
 
 # Mostrar targets de algoritmos disponiveis
 help:
@@ -90,10 +88,9 @@ help:
 	@echo "  make all         - Compilar o programa"
 	@echo "  make run         - Executar algoritmo padrao (priority_rr)"
 	@echo "  make clean       - Remover arquivos de build"
-	@echo "  make rebuild     - Limpar e recompilar"
 	@echo "  make help        - Mostrar esta mensagem de ajuda"
 	@echo ""
 	@echo "Todos os algoritmos usam automaticamente o arquivo schedule.txt."
 
 # Declarar targets que nao sao arquivos
-.PHONY: all run clean rebuild fcfs sjf rr priority priority_rr help
+.PHONY: all run clean fcfs sjf rr priority priority_rr help
