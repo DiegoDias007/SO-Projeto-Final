@@ -180,6 +180,3 @@ Métricas coletadas pelo próprio simulador (médias em ms) usando o `schedule.t
 | **4. Análise de Desempenho e Métricas** | Luiz Augusto Brito De Albuquerque |
 
 ---
-
-**Preencha as seções "Integrantes" e "Divisão de Tarefas" antes da entrega final.**
-
